@@ -22,4 +22,7 @@ Some Utilities To Help Your TCP-Related testing
   cmd.Process.Kill()
 ```
 
+For a higher level wrapper for testing network servers on random local ports,
+see [go-tcptest](https://github.com/lestrrat/go-tcptest)
+
 API docs: http://godoc.org/github.com/lestrrat/go-tcputil
