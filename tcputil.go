@@ -31,6 +31,7 @@ func WaitPort(addr string, dur time.Duration) error {
       c.Close()
       return nil
     }
+    time.Sleep(500 * time.Millisecond)
   }
   return errors.New(
     fmt.Sprintf("Could not connect to '%s'", addr),
