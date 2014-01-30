@@ -5,6 +5,7 @@ import (
   "log"
   "os/exec"
   "net"
+  "syscall"
   "testing"
   "time"
 )
@@ -16,6 +17,9 @@ func Example() {
   }
 
   cmd := exec.Command("memcached", "-p", fmt.Sprintf("%d", p))
+  cmd.SysProcAttr = &syscall.SysProcAttr {
+    Setpgid: true,
+  }
   go cmd.Run()
 
   err = WaitLocalPort(p, 30 * time.Second)
